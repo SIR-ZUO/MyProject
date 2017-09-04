@@ -85,38 +85,7 @@
 				icon : 'icon-star',
 				text : '单点控制',
 				uri : 'segment/manager.do'
-			},{
-				icon : 'icon-list-ul',
-				text : '报表资源',
-				uri : 'report/manager.do'
-			},{
-				icon : 'icon-inbox',
-				text : '数据库操作',
-				uri : 'dbmanage/backupsDBList.do'
-			},{
-				icon : 'icon-pencil',
-				text : '流程管理',
-				uri : 'flow/list.do'
-			} ,{
-				active : true,
-				icon : 'icon-file',
-				text : '文件类型',
-				uri : 'form/list.do'
-			},{
-				active : true,
-				icon : 'icon-file',
-				text : '模板管理',
-				uri : 'templatemanage/templateList.do'
-			},{
-				active : true,
-				icon : 'icon-edit',
-				text : '表单管理',
-				uri : '${request.contextPath}/component/formbuilder/list-index.html'
-			}, {
-				icon : 'icon-file',
-				text : '文件管理',
-				uri : '${request.contextPath}/files/manager'
-			}  ]
+			}]
 		} ];
 
 		TreeMenu('.left-tree-menu', data, {

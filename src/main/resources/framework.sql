@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2017-09-01 10:41:42
+Date: 2017-09-04 16:48:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,6 +26,7 @@ CREATE TABLE `t_app_fmfile` (
   `UPLOADTIME` datetime NOT NULL,
   `UPLOADER` varchar(255) DEFAULT NULL,
   `FOLDER` varchar(32) DEFAULT NULL,
+  `STATUS` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `FK_e42p1bc5t07wjvxhv2k0l93vv` (`FOLDER`),
   CONSTRAINT `FK_e42p1bc5t07wjvxhv2k0l93vv` FOREIGN KEY (`FOLDER`) REFERENCES `t_app_fmfolder` (`id`)
@@ -53,6 +54,23 @@ CREATE TABLE `t_app_fmfolder` (
 
 -- ----------------------------
 -- Records of t_app_fmfolder
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_app_fmfolder_log`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_app_fmfolder_log`;
+CREATE TABLE `t_app_fmfolder_log` (
+  `id` varchar(32) NOT NULL,
+  `addUser` varchar(255) DEFAULT NULL,
+  `folderId` varchar(255) DEFAULT NULL,
+  `logContent` varchar(255) DEFAULT NULL,
+  `logDate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_app_fmfolder_log
 -- ----------------------------
 
 -- ----------------------------
@@ -274,6 +292,13 @@ CREATE TABLE `t_resource_menu` (
 -- ----------------------------
 -- Records of t_resource_menu
 -- ----------------------------
+INSERT INTO `t_resource_menu` VALUES ('402881e75e3c1fb8015e3c26bc810000', '', '\0', ' icon-home', '0', '首页', 'test/ckeditor', null, '402881e75e3c1fb8015e3c26bc9c0001');
+INSERT INTO `t_resource_menu` VALUES ('402881e75e3c1fb8015e3c2a3716000c', '\0', '\0', 'icon-desktop', '50', 'Java', null, null, '402881e75e3c1fb8015e3c2a3716000d');
+INSERT INTO `t_resource_menu` VALUES ('402881e75e3c1fb8015e3c2a9cb4000e', '\0', '\0', 'icon-desktop', '150', 'Android', null, null, '402881e75e3c1fb8015e3c2a9cb4000f');
+INSERT INTO `t_resource_menu` VALUES ('402881e75e3c1fb8015e3c2b9ec80010', '\0', '\0', 'icon-desktop', '100', ' jquery', null, null, '402881e75e3c1fb8015e3c2b9ec80011');
+INSERT INTO `t_resource_menu` VALUES ('402881e75e3c1fb8015e3c2d11bb0012', '\0', '\0', 'icon-desktop', '200', '我的项目', null, null, '402881e75e3c1fb8015e3c2d11bb0013');
+INSERT INTO `t_resource_menu` VALUES ('402881e75e3c1fb8015e3c2d8f460014', '\0', '\0', 'icon-desktop', '300', '其他', null, null, '402881e75e3c1fb8015e3c2d8f460015');
+INSERT INTO `t_resource_menu` VALUES ('402881e75e3c1fb8015e3c377be5002e', '\0', '\0', 'icon-desktop', '250', '案例', null, null, '402881e75e3c1fb8015e3c377be5002f');
 
 -- ----------------------------
 -- Table structure for `t_resource_report`
@@ -331,6 +356,18 @@ CREATE TABLE `t_security_basicpermission` (
 -- ----------------------------
 -- Records of t_security_basicpermission
 -- ----------------------------
+INSERT INTO `t_security_basicpermission` VALUES ('402881e75e3c1fb8015e3c358fd20017', '402881e75e3c1fb8015e3c358fd20016');
+INSERT INTO `t_security_basicpermission` VALUES ('402881e75e3c1fb8015e3c358fda0019', '402881e75e3c1fb8015e3c358fda0018');
+INSERT INTO `t_security_basicpermission` VALUES ('402881e75e3c1fb8015e3c358fdf001b', '402881e75e3c1fb8015e3c358fde001a');
+INSERT INTO `t_security_basicpermission` VALUES ('402881e75e3c1fb8015e3c358fe6001d', '402881e75e3c1fb8015e3c358fe5001c');
+INSERT INTO `t_security_basicpermission` VALUES ('402881e75e3c1fb8015e3c358feb001f', '402881e75e3c1fb8015e3c358feb001e');
+INSERT INTO `t_security_basicpermission` VALUES ('402881e75e3c1fb8015e3c358ff10021', '402881e75e3c1fb8015e3c358ff00020');
+INSERT INTO `t_security_basicpermission` VALUES ('402881e75e3c1fb8015e3c358ff70023', '402881e75e3c1fb8015e3c358ff70022');
+INSERT INTO `t_security_basicpermission` VALUES ('402881e75e3c1fb8015e3c358ffd0025', '402881e75e3c1fb8015e3c358ffc0024');
+INSERT INTO `t_security_basicpermission` VALUES ('402881e75e3c1fb8015e3c3590040027', '402881e75e3c1fb8015e3c3590030026');
+INSERT INTO `t_security_basicpermission` VALUES ('402881e75e3c1fb8015e3c35900a0029', '402881e75e3c1fb8015e3c35900a0028');
+INSERT INTO `t_security_basicpermission` VALUES ('402881e75e3c1fb8015e3c359013002b', '402881e75e3c1fb8015e3c359012002a');
+INSERT INTO `t_security_basicpermission` VALUES ('402881e75e3c1fb8015e3c35901a002d', '402881e75e3c1fb8015e3c35901a002c');
 
 -- ----------------------------
 -- Table structure for `t_security_loginlog`
@@ -348,6 +385,13 @@ CREATE TABLE `t_security_loginlog` (
 -- Records of t_security_loginlog
 -- ----------------------------
 INSERT INTO `t_security_loginlog` VALUES ('402881e75e3b4c28015e3b4cb4340000', '0:0:0:0:0:0:0:1', '左雨虹/技术部/水滴科技', '2017-09-01 10:37:16');
+INSERT INTO `t_security_loginlog` VALUES ('402881e75e3c8b7d015e3c8be9e50000', '0:0:0:0:0:0:0:1', '左雨虹/技术部/水滴科技', '2017-09-01 16:25:55');
+INSERT INTO `t_security_loginlog` VALUES ('402881e75e3ca956015e3ca99c090000', '0:0:0:0:0:0:0:1', '左雨虹/技术部/水滴科技', '2017-09-01 16:58:22');
+INSERT INTO `t_security_loginlog` VALUES ('402881e75e3cbac7015e3cbbf03f0000', '0:0:0:0:0:0:0:1', '左雨虹/技术部/水滴科技', '2017-09-01 17:18:23');
+INSERT INTO `t_security_loginlog` VALUES ('402881ec5e4aefe6015e4af02d260000', '0:0:0:0:0:0:0:1', '左雨虹/技术部/水滴科技', '2017-09-04 11:30:07');
+INSERT INTO `t_security_loginlog` VALUES ('402881ec5e4ba341015e4ba4002e0000', '0:0:0:0:0:0:0:1', '左雨虹/技术部/水滴科技', '2017-09-04 14:46:32');
+INSERT INTO `t_security_loginlog` VALUES ('402881ec5e4bc4ce015e4bc54cef0000', '0:0:0:0:0:0:0:1', '左雨虹/技术部/水滴科技', '2017-09-04 15:22:55');
+INSERT INTO `t_security_loginlog` VALUES ('402881ec5e4c04d7015e4c054c290000', '0:0:0:0:0:0:0:1', '左雨虹/技术部/水滴科技', '2017-09-04 16:32:49');
 
 -- ----------------------------
 -- Table structure for `t_security_permission`
@@ -365,6 +409,18 @@ CREATE TABLE `t_security_permission` (
 -- ----------------------------
 -- Records of t_security_permission
 -- ----------------------------
+INSERT INTO `t_security_permission` VALUES ('402881e75e3c1fb8015e3c358fd20016', '0', '402881e75e3c1fb8015e3c26bc9c0001');
+INSERT INTO `t_security_permission` VALUES ('402881e75e3c1fb8015e3c358fda0018', '0', '402881e75e3c1fb8015e3c2a3716000d');
+INSERT INTO `t_security_permission` VALUES ('402881e75e3c1fb8015e3c358fde001a', '0', '402881e75e3c1fb8015e3c2b9ec80011');
+INSERT INTO `t_security_permission` VALUES ('402881e75e3c1fb8015e3c358fe5001c', '0', '402881e75e3c1fb8015e3c2a9cb4000f');
+INSERT INTO `t_security_permission` VALUES ('402881e75e3c1fb8015e3c358feb001e', '0', '402881e75e3c1fb8015e3c2d11bb0013');
+INSERT INTO `t_security_permission` VALUES ('402881e75e3c1fb8015e3c358ff00020', '0', '402881e75e3c1fb8015e3c2d8f460015');
+INSERT INTO `t_security_permission` VALUES ('402881e75e3c1fb8015e3c358ff70022', '1', '402881e75e3c1fb8015e3c26bc9c0001');
+INSERT INTO `t_security_permission` VALUES ('402881e75e3c1fb8015e3c358ffc0024', '1', '402881e75e3c1fb8015e3c2a3716000d');
+INSERT INTO `t_security_permission` VALUES ('402881e75e3c1fb8015e3c3590030026', '1', '402881e75e3c1fb8015e3c2b9ec80011');
+INSERT INTO `t_security_permission` VALUES ('402881e75e3c1fb8015e3c35900a0028', '1', '402881e75e3c1fb8015e3c2a9cb4000f');
+INSERT INTO `t_security_permission` VALUES ('402881e75e3c1fb8015e3c359012002a', '1', '402881e75e3c1fb8015e3c2d11bb0013');
+INSERT INTO `t_security_permission` VALUES ('402881e75e3c1fb8015e3c35901a002c', '1', '402881e75e3c1fb8015e3c2d8f460015');
 
 -- ----------------------------
 -- Table structure for `t_security_resource`
@@ -383,6 +439,13 @@ CREATE TABLE `t_security_resource` (
 -- ----------------------------
 -- Records of t_security_resource
 -- ----------------------------
+INSERT INTO `t_security_resource` VALUES ('402881e75e3c1fb8015e3c26bc9c0001', '2017-09-01 14:35:25', '2017-09-01 14:35:25', '首页', '1', 'test/ckeditor');
+INSERT INTO `t_security_resource` VALUES ('402881e75e3c1fb8015e3c2a3716000d', '2017-09-01 14:39:13', '2017-09-01 14:39:13', 'Java', '1', '5fde76b3-6018-423e-a2da-5e4e5eb4b4fa');
+INSERT INTO `t_security_resource` VALUES ('402881e75e3c1fb8015e3c2a9cb4000f', '2017-09-01 14:39:39', '2017-09-01 14:39:39', 'Android', '1', '351de5cc-02a8-4842-9666-9852c2d9e69d');
+INSERT INTO `t_security_resource` VALUES ('402881e75e3c1fb8015e3c2b9ec80011', '2017-09-01 14:40:45', '2017-09-01 14:40:45', ' jquery', '1', '8c02b0c8-42b6-40d2-ad6a-6389aa492844');
+INSERT INTO `t_security_resource` VALUES ('402881e75e3c1fb8015e3c2d11bb0013', '2017-09-01 14:42:20', '2017-09-01 14:42:20', '我的项目', '1', '43b08637-8ff4-42f0-813f-153e5394fed5');
+INSERT INTO `t_security_resource` VALUES ('402881e75e3c1fb8015e3c2d8f460015', '2017-09-01 14:42:52', '2017-09-01 14:42:52', '其他', '1', 'd942b8b3-dcbf-4ba3-b383-9f4dc58f0549');
+INSERT INTO `t_security_resource` VALUES ('402881e75e3c1fb8015e3c377be5002f', '2017-09-01 14:53:42', '2017-09-01 14:53:42', '案例', '1', '77c3dc9f-869b-48e7-8a8f-a363a7c8aaba');
 
 -- ----------------------------
 -- Table structure for `t_security_role2permission`
@@ -395,8 +458,8 @@ CREATE TABLE `t_security_role2permission` (
   PRIMARY KEY (`id`),
   KEY `FK_7uu8fqq2wlrcrsynbl6rqttag` (`PERMISSIONID`),
   KEY `FK_dxnfrstjhdnbp50riberykqi` (`ROLEID`),
-  CONSTRAINT `FK_dxnfrstjhdnbp50riberykqi` FOREIGN KEY (`ROLEID`) REFERENCES `t_e_qz` (`ID_E_QZ`),
-  CONSTRAINT `FK_7uu8fqq2wlrcrsynbl6rqttag` FOREIGN KEY (`PERMISSIONID`) REFERENCES `t_security_permission` (`id`)
+  CONSTRAINT `FK_7uu8fqq2wlrcrsynbl6rqttag` FOREIGN KEY (`PERMISSIONID`) REFERENCES `t_security_permission` (`id`),
+  CONSTRAINT `FK_dxnfrstjhdnbp50riberykqi` FOREIGN KEY (`ROLEID`) REFERENCES `t_e_qz` (`ID_E_QZ`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
